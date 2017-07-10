@@ -13,7 +13,7 @@
 
 
 
-<h3 id="group-5-forecasting-car-sales-in-norway">Group 5, Forecasting Car Sales in Norway</h3>
+<h3 id="group-5-forecasting-car-sales-in-norway-2017">Group 5, Forecasting Car Sales in Norway 2017</h3>
 
 
 
@@ -45,11 +45,11 @@
 
 <h3 id="executive-summary">Executive summary</h3>
 
-<p>We are going to use data set from Kaggle, <a href="https://www.kaggle.com/dmi3kno/newcarsalesnorway">New Car Sales in Norway (2007~2017 Jan)</a> to predict future(2017 Feb~) car sales in Norway.  The forecasting process will be done in pure R, especially by ARIMA, as professor suggested. But rather than starting a prediction right away, we are planning to test some other models besides ARIMA to analysis its validity. And so as to do this, we will first predict sales in 2016 by several models, and see which model gives the least errors compared to actual data. And then we will use that model to predict sales in 2017.</p>
+<p>We are going to use data set from Kaggle, <a href="https://www.kaggle.com/dmi3kno/newcarsalesnorway">New Car Sales in Norway (2007~2017 Jan)</a> to predict future(2017 Feb~) car sales in Norway.  The forecasting process will be done in pure R, especially using <em>forecast</em> package. On 1st scrum, we used <em>ARIMA</em> to do the forecast, as professor suggested that <em>ARIMA</em> is good for dealing with time series data. On 2nd scrum, we are going to run two additional models besides <em>ARIMA</em> to find out the fittest model. Rather than starting a prediction right away, we will first run models to predict sales in 2016 to check how precise they are. We will see which model gives the least errors compared to actual data. And then we will use the best model(which gives the least error) to predict sales in 2017.</p>
 
 
 
-<h3 id="problem-description-wip-work-in-progress">Problem Description -WIP (work in progress)</h3>
+<h3 id="problem-description">Problem Description</h3>
 
 <p>As we have sales ​data for 10 years, we can predict the sales data for following months. For example, our sales data is only until January 2017, and it gives us opportunity to predict sales for February, March, May, and other months.</p>
 
@@ -61,9 +61,9 @@
 
 
 
-<h3 id="utility-wip">Utility -WIP</h3>
+<h3 id="utility">Utility</h3>
 
-<p>Based on results from our findings, car makers and investors will know the rough              estimate of sales should they continue to commit in this business. Having a sort of model or graphs done by calculation in data mining, all relevant stakeholders have another source to decide what they are going to do instead of relying to assumption and baseless arguments. </p>
+<p>The information that is derived from forecasting analysis can be applied in various terms and these insights might be useful especially for car manufacturers in XXI century’s competitive business environment. Since Norway is ecofriendly country, the current trend on electric and hybrid car market gives a challenge for companies to find more competitive ways for selling their cars to Norwegian people.  By knowing sales forecast, car manufacturers can estimate their expenses on manufacturing, distribution, servicing, and others. Also, it might help them to adjust their manufacturing facility to meet with the future demand. This is like a chain system, by knowing forecast, it will help companies to work more efficiently, not face with cash availability problems, make effective marketing strategy, predict competitor’s reaction, and have better measures of sales potential, like how much will be the maximum total revenue or number of units that company will sell.</p>
 
 
 
@@ -120,7 +120,7 @@ dt_ts&lt;<span class="hljs-function">-ts(dt$Quantity, frequency=<span class="hlj
 
 <h4 id="model-1-exponential-state-smoothingets">Model 1. Exponential State Smoothing(ETS)</h4>
 
-<p>The ETS function is in *forecast’ package, and is used for making forecasts. Although it is best used in data that where past observations are weighted equally(simple moving average), we did give it a try.</p>
+<p>The ETS function is in <em>forecast</em> package, and is used for making forecasts. Although it is best used in data that where past observations are weighted equally(simple moving average), we did give it a try.</p>
 
 
 
@@ -153,7 +153,7 @@ plot(fut_tbats)</span></code></pre>
 <h4 id="model-3-arima">Model 3. ARIMA</h4>
 
 <p>ARIMA is considered as the best function for predicting time series. <em>auto.arima()</em> automatically optimizes parameter and gives you the best model(within ARIMA). <br>
-On 1st scrum, we wrote ARIMA manually, but turned out we could just use <em>auto.arima</em> on 2nd scrum.</p>
+On 1st scrum, we wrote ARIMA manually, but, turned out on 2nd scrum that it could be done automatically by using <em>auto.arima</em>.</p>
 
 <p>1st scrum (legacy way)</p>
 
@@ -439,16 +439,5 @@ p_arima &lt;- <span class="hljs-function">c(<span class="hljs-number">12481</spa
 
 <h4 id="conclusion">Conclusion</h4>
 
-<p>The forecast car sales in 2017 would be 163428. (Actual January sales 13055 + predicted sales from Feb~Dec 150373)</p>
-
-
-
-<h1 id="professor-wants">professor wants…</h1>
-
-<ol>
-<li><del>2 more models</del> this is done</li>
-<li>correlations between variables with a discussion of the results</li>
-<li><del>3 more graphs</del> this is done i think?</li>
-<li>a deeper discussion of how the results can be used</li>
-</ol></div></body>
+<p>The forecast car sales in 2017 would be 163428. (Actual January sales 13055 + predicted sales from Feb~Dec 150373)</p></div></body>
 </html>
