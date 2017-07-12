@@ -3,470 +3,361 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>17S DataMiningEA - Group 5 - 2nd Scrum</title>
+<title>Tourism</title>
 <link rel="stylesheet" href="https://stackedit.io/res-min/themes/base.css" />
 <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML"></script>
 </head>
-<body><div class="container"><h1 id="data-mining-17s-team-project-2nd-scrum">Data Mining 17S Team Project 2nd Scrum</h1>
+<body><div class="container"><h3 id="3-understanding-tourism-demand">3. Understanding tourism demand</h3>
+
+<dl>
+<dt>1.Exogenous factors shaping demand refers to</dt>
+<dd>
+<p>a. personal preferences </p>
+</dd>
+
+<dd>
+<p>b. the economy (O)</p>
+</dd>
+
+<dd>
+<p>c. marketing (X)</p>
+</dd>
+
+<dd>
+<p>d. attitudes to travel </p>
+</dd>
+
+<dt>2.Motivations are NOT directly affected by</dt>
+<dd>
+<p>a. the economy (O)</p>
+</dd>
+
+<dd>
+<p>b. personal preferences (X)</p>
+</dd>
+
+<dd>
+<p>c. culture (X)</p>
+</dd>
+
+<dd>
+<p>d. age and gender (X)</p>
+</dd>
+
+<dt>3.The economic determinants of demand in the tourist-generating area include which of the these influences?</dt>
+<dd>
+<p>a. Holiday entitlements </p>
+</dd>
+
+<dd>
+<p>b. Promotional efforts in the destination (X)</p>
+</dd>
+
+<dd>
+<p>c. Visa regulations </p>
+</dd>
+
+<dd>
+<p>d. Destination exchange rates (O)</p>
+</dd>
+
+<dt>4.What was the purpose of the USAs Global Entry Program in 2012?</dt>
+<dd>
+<p>a. To expand the number of visitors from Brazil and China (O)</p>
+</dd>
+
+<dd>
+<p>b. To reduce the overall number of visitors to the USA (X)</p>
+</dd>
+
+<dd>
+<p>c. To impose greater security restrictions in US airports (X)</p>
+</dd>
+
+<dd>
+<p>d. To encourage overseas investment in the USA </p>
+</dd>
+
+<dt>5.Most governments have used the following taxes on tourism:</dt>
+<dd>
+<p>a. on consumers of tourist products (X)</p>
+</dd>
+
+<dd>
+<p>b. on commercial products (X)</p>
+</dd>
+
+<dd>
+<p>c. user pays fees </p>
+</dd>
+
+<dd>
+<p>d. income tax (O)</p>
+</dd>
+
+<dt>6.Which two Dutch towns abolished their bed levies in 2005?</dt>
+<dd>
+<p>a. Amersfoot and Amsterdam (X)</p>
+</dd>
+
+<dd>
+<p>b. Amersfoot and Rotterdam (O)</p>
+</dd>
+
+<dd>
+<p>c. Breda and Rotterdam (X)</p>
+</dd>
+
+<dd>
+<p>d. Amsterdam and Rotterdam (X)</p>
+</dd>
 
-<hr>
+<dt>7.Government controls in the destination DO NOT typically included:</dt>
+<dd>
+<p>a. visa restrictions </p>
+</dd>
 
+<dd>
+<p>b. controls on the number of domestic tourists (O)</p>
+</dd>
 
+<dd>
+<p>c. restricting the amount of currency that can be exchanged </p>
+</dd>
+
+<dd>
+<p>d. limiting the number of inbound tourists </p>
+</dd>
+
+<dt>8.The reasons for the use of tourism statistics to measure tourism do not primarily seek to:</dt>
+<dd>
+<p>a. understand how to control tourist behaviour and responses (O)</p>
+</dd>
 
-<h3 id="group-5-forecasting-car-sales-in-norway-2017">Group 5, Forecasting Car Sales in Norway 2017</h3>
+<dd>
+<p>b. evaluate the magnitude and significance of tourism </p>
+</dd>
 
+<dd>
+<p>c. assist in destination planning (X)</p>
+</dd>
+
+<dd>
+<p>d. quantify the economic value of tourism </p>
+</dd>
+
+<dt>9.The range of problems associated with gathering tourism statistics includes:</dt>
+<dd>
+<p>a. the difficulty of stopping people at places where their time is limited (e.g. in airports) </p>
+</dd>
 
+<dd>
+<p>b. the population is transitory and mobile (X)</p>
+</dd>
 
-<h4 id="team-members"><i class="icon-users"></i> Team members</h4>
+<dd>
+<p>c. the environment in which tourists are often interviewed is distracting due to the noise and levels of activity (e.g. inside airport terminals) </p>
+</dd>
+
+<dd>
+<p>d. the use of surveys which are proven to be a poor tool to use to collect data on tourism (O)</p>
+</dd>
+
+<dt>10.In the analysis of tourism futures, drivers are often used. What factors do social and cultural drivers typically NOT cover?</dt>
+<dd>
+<p>a. hedonistic behaviour </p>
+</dd>
 
-<table>
-<thead>
-<tr>
-  <th>Name</th>
-  <th>Student ID</th>
-</tr>
-</thead>
-<tbody><tr>
-  <td>KIM CHANSUP</td>
-  <td>12216101</td>
-</tr>
-<tr>
-  <td>Nicholas Sutanto</td>
-  <td>12415147</td>
-</tr>
-<tr>
-  <td>Emil Guliyev</td>
-  <td>82416617</td>
-</tr>
-</tbody></table>
+<dd>
+<p>b. political attitudes (O)</p>
+</dd>
 
-
-
-
-<h3 id="executive-summary">Executive summary</h3>
-
-<p>We are going to use data set from Kaggle, <a href="https://www.kaggle.com/dmi3kno/newcarsalesnorway">New Car Sales in Norway (2007~2017 Jan)</a> to predict future(2017 Feb~) car sales in Norway.  The forecasting process will be done in pure R, especially using <em>forecast</em> package. On 1st scrum, we used <em>ARIMA</em> to do the forecast, as professor suggested that <em>ARIMA</em> is good for dealing with time series data. On 2nd scrum, we are going to run two additional models besides <em>ARIMA</em> to find out the fittest model. Rather than starting a prediction right away, we will first run models to predict sales in 2016 to check how precise they are. We will see which model gives the least errors compared to actual data. And then we will use the best model(which gives the least error) to predict sales in 2017.</p>
-
-
-
-<h3 id="problem-description">Problem Description</h3>
-
-<p>We want to be able to predict future data results based on what already achieved in the past, without guessing wildly, where everyone is able to make speculation backed by data. With the available past sales data’s range of 10 years, we can use it to predict the sales data for following months. As of now, our available sales data up to January 2017, and it gives us opportunity to attempt predicting sales for February, March, May, and so on. The problem with predicting the future is uncertainties. If we ignore this problem, it will makes the whole project itself no different than making a wild guess. Uncertainties happened when the data that was provided shows more than one possible result, which means the further we try to predict, the more uncertainties shows up as we still need to determine the amount of possible outcome from the earlier prediction.  <br>
-The forecasting models will greatly help us in predicting the future based on our available data and it match well to assist us in processing.</p>
-
-
-
-<h3 id="data-description">Data Description</h3>
-
-<p>Dataset includes monthly car sales in Norway from 2007 January to 2017 January. It has been collected by the Road Traffic Information Council (OFV) and can be accessed from Kaggle. We are using <strong>norway_new_car_sales_by_month.csv</strong>, all inputs are numberic. It has 121 rows and 17 columns, important input variables are Year, Month, and Quantity, others are not relevant in terms of sales prediction.</p>
-
-
-
-<pre class="prettyprint"><code class=" hljs vala">&gt; norway_new_car_sales_by_month.csv 
-
-<span class="hljs-preprocessor">## Observations: 121</span>
-<span class="hljs-preprocessor">## Variables: 17</span>
-<span class="hljs-preprocessor">## $ Year              &lt;int&gt; 2007, 2007, 2007, 2007, 2007, 2007, 2007, 20...</span>
-<span class="hljs-preprocessor">## $ Month             &lt;int&gt; 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 1, 2,...</span>
-<span class="hljs-preprocessor">## $ Quantity          &lt;int&gt; 12685, 9793, 11264, 8854, 12007, 11083, 1206...</span>
-<span class="hljs-preprocessor">## $ Quantity_YoY      &lt;int&gt; 5227, 2448, 1445, 504, 1592, 1545, 1908, 199...</span>
-<span class="hljs-preprocessor">## $ Import            &lt;int&gt; 2276, 1992, 2626, 2220, 2881, 3038, 3768, 34...</span>
-<span class="hljs-preprocessor">## $ Import_YoY        &lt;int&gt; 257, -89, 45, -130, 7, 23, 137, 260, -28, 59...</span>
-<span class="hljs-preprocessor">## $ Used              &lt;int&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, ...</span>
-<span class="hljs-preprocessor">## $ Used_YoY          &lt;int&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, ...</span>
-<span class="hljs-preprocessor">## $ Avg_CO2           &lt;int&gt; 152, 156, 159, 160, 160, 161, 159, 160, 160,...</span>
-<span class="hljs-preprocessor">## $ Bensin_Co2        &lt;int&gt; 155, 159, 161, 165, 163, 163, 161, 160, 160,...</span>
-<span class="hljs-preprocessor">## $ Diesel_Co2        &lt;int&gt; 152, 155, 158, 158, 159, 160, 158, 160, 160,...</span>
-<span class="hljs-preprocessor">## $ Quantity_Diesel   &lt;int&gt; 10072, 7222, 7965, 6116, 8519, 8290, 9203, 7...</span>
-<span class="hljs-preprocessor">## $ Diesel_Share      &lt;dbl&gt; 79.4, 73.7, 70.7, 69.1, 71.0, 74.8, 76.3, 73...</span>
-<span class="hljs-preprocessor">## $ Diesel_Share_LY   &lt;dbl&gt; 52.5, 47.4, 48.1, 48.4, 49.1, 49.5, 50.1, 50...</span>
-<span class="hljs-preprocessor">## $ Quantity_Hybrid   &lt;int&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, ...</span>
-<span class="hljs-preprocessor">## $ Quantity_Electric &lt;int&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, ...</span>
-<span class="hljs-preprocessor">## $ Import_Electric   &lt;int&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, ..</span></code></pre>
-
-<h3 id="utility">Utility</h3>
-
-<p>The information that is derived from forecasting analysis can be applied in various terms and these insights might be useful especially for car manufacturers in XXI century’s competitive business environment. Since Norway is ecofriendly country, the current trend on electric and hybrid car market gives a challenge for companies to find more competitive ways for selling their cars to Norwegian people.  By knowing sales forecast, car manufacturers can estimate their expenses on manufacturing, distribution, servicing, and others. Also, it might help them to adjust their manufacturing facility to meet with the future demand. This is like a chain system, by knowing forecast, it will help companies to work more efficiently, not face with cash availability problems, make effective marketing strategy, predict competitor’s reaction, and have better measures of sales potential, like how much will be the maximum total revenue or number of units that company will sell.</p>
-
-
-
-<h3 id="preprocessing-of-data">Preprocessing of Data</h3>
-
-<p>First, We load the R libraries that we need for this analysis.</p>
-
-
-
-<pre class="prettyprint"><code class=" hljs erlang"><span class="hljs-function"><span class="hljs-title">library</span><span class="hljs-params">(forecast)</span>
-<span class="hljs-title">library</span><span class="hljs-params">(dplyr)</span>
-<span class="hljs-title">library</span><span class="hljs-params">(tseries)</span>
-<span class="hljs-title">library</span><span class="hljs-params">(zoo)</span></span></code></pre>
-
-<p>The <em>forecast</em> is for the functions we need for predicting time series data. The <em>dylyr</em> is for manipulating data frames.  The <em>tseries</em> is a package for handling time series data. And <em>zoo</em> is for the use of trans-forming a data(as.yearmon)</p>
-
-<p>After installing dependencies, read the csv data</p>
-
-
-
-<pre class="prettyprint"><code class=" hljs livecodeserver">dt&lt;-<span class="hljs-built_in">read</span>.csv(<span class="hljs-string">"...path/norway_new_car_sales_by_month.csv"</span>, header = <span class="hljs-constant">TRUE</span>, stringsAsFactors = <span class="hljs-constant">FALSE</span>)</code></pre>
-
-<p>We can’t handle this data now, because it is too messy. If we plot the data, it’ll be shown like this</p>
-
-<p><img src="http://i.imgur.com/kyNru6F.png" alt="enter image description here" title=""></p>
-
-<p>It is because there are too many input variables(and some NAs). In order to make a clean, usable data(for our project), we will discard some variables that are irrelevant. Total quantity of sales by yearly, monthly, and type of car(electric, diesel, hybrid…etc) sales are the ones that we care about. Besides, we have to convert the data frame to ts(time series) for manipulation.</p>
-
-
-
-<pre class="prettyprint"><code class=" hljs scss"><span class="hljs-tag">dt</span>&lt;<span class="hljs-function">-transform(dt, Yearmon = as.<span class="hljs-function">yearmon(<span class="hljs-function">paste(Year, Month, sep = <span class="hljs-string">"-"</span>)</span>)</span>)</span>
-<span class="hljs-tag">dt</span>$Date&lt;-as<span class="hljs-class">.Date</span>(<span class="hljs-tag">dt</span>$Yearmon)
-
-dt_ts&lt;<span class="hljs-function">-ts(dt$Quantity, frequency=<span class="hljs-number">12</span>, start=<span class="hljs-function">c(<span class="hljs-number">2007</span>,<span class="hljs-number">1</span>)</span>, end = <span class="hljs-function">c(<span class="hljs-number">2016</span>,<span class="hljs-number">12</span>)</span>)</span>
-<span class="hljs-function">plot(dt_ts)</span></code></pre>
-
-<p><img src="http://i.imgur.com/X03zFw7.png" alt="enter image description here" title=""></p>
-
-<p>So now we have our time series data. The next step is modeling.</p>
-
-
-
-<h4 id="choosing-a-model">Choosing a model</h4>
-
-<p>We did mention that we would use several models to see how they predict sales in 2016. We will use the model that go close to the actual data for forecasting of 2017. As we are asked to use 3 different models(1 for 1st scrum, +2 for 2nd scrum), we will use the following models.</p>
-
-<ol>
-<li>Exponential State Smoothing(ETS)</li>
-<li>TBATS  </li>
-<li>ARIMA (did this in 1st scrum)</li>
-</ol>
-
-
-
-<h4 id="model-1-exponential-state-smoothingets">Model 1. Exponential State Smoothing(ETS)</h4>
-
-<p>The ETS function is in <em>forecast</em> package, and is used for making forecasts. Although it is best used in data that where past observations are weighted equally(simple moving average), we did give it a try.</p>
-
-
-
-<pre class="prettyprint"><code class=" hljs scss">fitstl&lt;<span class="hljs-function">-stl(dt_ts, s.window = <span class="hljs-string">"period"</span>)</span>
-m_ets&lt;<span class="hljs-function">-forecast(fitstl, method = <span class="hljs-string">"ets"</span>, h=<span class="hljs-number">12</span>)</span>
-<span class="hljs-function">plot(m_ets)</span></code></pre>
-
-<p><img src="http://i.imgur.com/7boHnMq.png" alt="enter image description here" title=""></p>
-
-<p>By specifying <em>h=12</em>, we made a prediction for next 12 months. <br>
-The gap between gray area and blue area(AKA confidence interval) seems big. We’ll compare this prediction with other models and with actual data later.</p>
-
-
-
-<h4 id="model-2-tbats">Model 2. TBATS</h4>
-
-<p>TBATS model is designed for forecasting and is best applied when the data has cyclic patterns.</p>
-
-
-
-<pre class="prettyprint"><code class=" hljs fix"><span class="hljs-attribute">fut_tbats </span>=<span class="hljs-string"> forecast(tbats(dt_ts), h=12)
-plot(fut_tbats)</span></code></pre>
-
-<p><img src="http://i.imgur.com/v0k2F2P.png" alt="enter image description here" title=""></p>
-
-<p>Prediction seems almost same as Model 1.</p>
-
-
-
-<h4 id="model-3-arima">Model 3. ARIMA</h4>
-
-<p>ARIMA is considered as the best function for predicting time series. <em>auto.arima()</em> automatically optimizes parameter and gives you the best model(within ARIMA). <br>
-On 1st scrum, we wrote ARIMA manually, but, turned out on 2nd scrum that it could be done automatically by using <em>auto.arima</em>.</p>
-
-<p>1st scrum (legacy way)</p>
-
-
-
-<pre class="prettyprint"><code class=" hljs lasso">library(tseries)
-
-adf<span class="hljs-built_in">.</span>test(diff(<span class="hljs-keyword">log</span>(dt_ts)), alternative<span class="hljs-subst">=</span><span class="hljs-string">"stationary"</span>, k<span class="hljs-subst">=</span><span class="hljs-number">0</span>)
-(fit <span class="hljs-subst">&lt;-</span> arima(<span class="hljs-keyword">log</span>(dt_ts), c(<span class="hljs-number">0</span>, <span class="hljs-number">1</span>, <span class="hljs-number">2</span>),seasonal <span class="hljs-subst">=</span> <span class="hljs-built_in">list</span>(<span class="hljs-keyword">order</span> <span class="hljs-subst">=</span> c(<span class="hljs-number">1</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>), period <span class="hljs-subst">=</span> <span class="hljs-number">12</span>)))
-pred <span class="hljs-subst">&lt;-</span> predict(fit, n<span class="hljs-built_in">.</span>ahead <span class="hljs-subst">=</span> <span class="hljs-number">1</span><span class="hljs-subst">*</span><span class="hljs-number">12</span>)
-ts<span class="hljs-built_in">.</span>plot(dt_ts,<span class="hljs-number">2.718</span>^pred<span class="hljs-variable">$pred</span>, <span class="hljs-keyword">log</span> <span class="hljs-subst">=</span> <span class="hljs-string">"y"</span>, lty <span class="hljs-subst">=</span> c(<span class="hljs-number">1</span>,<span class="hljs-number">3</span>))</code></pre>
-
-<p><img src="http://i.imgur.com/OF7MZGq.png" alt="enter image description here" title=""></p>
-
-<p>2nd scrum (using <em>auto.arima</em>)</p>
-
-
-
-<pre class="prettyprint"><code class=" hljs makefile"><span class="hljs-constant">aarima</span> = auto.arima(dt_ts)
-<span class="hljs-constant">fut_aa</span> = forecast(aarima, h=12)
-plot(fut_aa)</code></pre>
-
-<p><img src="http://i.imgur.com/6ueggrm.png" alt="enter image description here" title=""></p>
-
-<p>Both way produce a same result.</p>
-
-<hr>
-
-
-
-<h4 id="best-model">Best model ?</h4>
-
-<p>Now, we will compare the actual data with predicted data. <br>
-(data is from 2016 January to 2016 December)</p>
-
-<table>
-<thead>
-<tr>
-  <th>Actual</th>
-  <th>ETS</th>
-  <th>TBATS</th>
-  <th>ARIMA</th>
-</tr>
-</thead>
-<tbody><tr>
-  <td>Jan 10991</td>
-  <td>12330.43</td>
-  <td>12234.69</td>
-  <td>12480.50</td>
-</tr>
-<tr>
-  <td>Feb 12222</td>
-  <td>12107.88</td>
-  <td>12164.86</td>
-  <td>12549.69</td>
-</tr>
-<tr>
-  <td>Mar 13875</td>
-  <td>13666.77</td>
-  <td>13647.09</td>
-  <td>13303.97</td>
-</tr>
-<tr>
-  <td>Apr 14116</td>
-  <td>13131.34</td>
-  <td>13467.60</td>
-  <td>13005.00</td>
-</tr>
-<tr>
-  <td>May 12864</td>
-  <td>13312.24</td>
-  <td>13011.46</td>
-  <td>12843.02</td>
-</tr>
-<tr>
-  <td>Jun 13681</td>
-  <td>12849.02</td>
-  <td>12735.90</td>
-  <td>13314.40</td>
-</tr>
-<tr>
-  <td>Jul 11040</td>
-  <td>13241.80</td>
-  <td>13171.97</td>
-  <td>12920.75</td>
-</tr>
-<tr>
-  <td>Aug 13232</td>
-  <td>12661.62</td>
-  <td>12876.17</td>
-  <td>12966.35</td>
-</tr>
-<tr>
-  <td>Sep 13854</td>
-  <td>12820.76</td>
-  <td>12754.44</td>
-  <td>12926.61</td>
-</tr>
-<tr>
-  <td>Oct 11932</td>
-  <td>13506.48</td>
-  <td>13634.88</td>
-  <td>13095.10</td>
-</tr>
-<tr>
-  <td>Nov 13194</td>
-  <td>12980.64</td>
-  <td>12641.90</td>
-  <td>12965.48</td>
-</tr>
-<tr>
-  <td>Dec 13055</td>
-  <td>12514.44</td>
-  <td>12582.13</td>
-  <td>13069.26</td>
-</tr>
-</tbody></table>
-
-
-<p>But because sales(number of car sold) can’t be decimal values, we will round up these numbers to remove trailings.</p>
-
-<table>
-<thead>
-<tr>
-  <th>Actual</th>
-  <th>ETS</th>
-  <th>TBATS</th>
-  <th>ARIMA</th>
-</tr>
-</thead>
-<tbody><tr>
-  <td>Jan 10991</td>
-  <td>12330</td>
-  <td>12235</td>
-  <td>12481</td>
-</tr>
-<tr>
-  <td>Feb 12222</td>
-  <td>12108</td>
-  <td>12165</td>
-  <td>12550</td>
-</tr>
-<tr>
-  <td>Mar 13875</td>
-  <td>13667</td>
-  <td>13647</td>
-  <td>13304</td>
-</tr>
-<tr>
-  <td>Apr 14116</td>
-  <td>13131</td>
-  <td>13468</td>
-  <td>13005</td>
-</tr>
-<tr>
-  <td>May 12864</td>
-  <td>13312</td>
-  <td>13012</td>
-  <td>12843</td>
-</tr>
-<tr>
-  <td>Jun 13681</td>
-  <td>12849</td>
-  <td>12736</td>
-  <td>13314</td>
-</tr>
-<tr>
-  <td>Jul 11040</td>
-  <td>13242</td>
-  <td>13172</td>
-  <td>12921</td>
-</tr>
-<tr>
-  <td>Aug 13232</td>
-  <td>12662</td>
-  <td>12876</td>
-  <td>12966</td>
-</tr>
-<tr>
-  <td>Sep 13854</td>
-  <td>12821</td>
-  <td>12754</td>
-  <td>12927</td>
-</tr>
-<tr>
-  <td>Oct 11932</td>
-  <td>13507</td>
-  <td>13635</td>
-  <td>13095</td>
-</tr>
-<tr>
-  <td>Nov 13194</td>
-  <td>12981</td>
-  <td>12642</td>
-  <td>12966</td>
-</tr>
-<tr>
-  <td>Dec 13055</td>
-  <td>12514</td>
-  <td>12582</td>
-  <td>13069</td>
-</tr>
-<tr>
-  <td>total 154056</td>
-  <td>155124</td>
-  <td>154924</td>
-  <td>155441</td>
-</tr>
-</tbody></table>
-
-
-<p>and let’s visualize these in R…</p>
-
-
-
-<pre class="prettyprint"><code class=" hljs scss">actual &lt;- <span class="hljs-function">c(<span class="hljs-number">10991</span>, <span class="hljs-number">12222</span>, <span class="hljs-number">13875</span>, <span class="hljs-number">14116</span>, <span class="hljs-number">12864</span>, <span class="hljs-number">13681</span>, <span class="hljs-number">11040</span>, <span class="hljs-number">13232</span>, <span class="hljs-number">13854</span>, <span class="hljs-number">11932</span>, <span class="hljs-number">13194</span>, <span class="hljs-number">13055</span>)</span>
-p_ets &lt;- <span class="hljs-function">c(<span class="hljs-number">12330</span>, <span class="hljs-number">12108</span>, <span class="hljs-number">13667</span>, <span class="hljs-number">13131</span>, <span class="hljs-number">13312</span>, <span class="hljs-number">12849</span>, <span class="hljs-number">13242</span>, <span class="hljs-number">12662</span>, <span class="hljs-number">12821</span>, <span class="hljs-number">13507</span>, <span class="hljs-number">12981</span>, <span class="hljs-number">12514</span>)</span>
-p_tbats &lt;- <span class="hljs-function">c(<span class="hljs-number">12235</span>, <span class="hljs-number">12165</span>, <span class="hljs-number">13647</span>, <span class="hljs-number">13468</span>, <span class="hljs-number">13012</span>, <span class="hljs-number">12736</span>, <span class="hljs-number">13172</span>, <span class="hljs-number">12876</span>, <span class="hljs-number">12754</span>, <span class="hljs-number">13635</span>, <span class="hljs-number">12642</span>, <span class="hljs-number">12582</span>)</span>
-p_arima &lt;- <span class="hljs-function">c(<span class="hljs-number">12481</span>, <span class="hljs-number">12550</span>, <span class="hljs-number">13304</span>, <span class="hljs-number">13005</span>, <span class="hljs-number">12843</span>, <span class="hljs-number">13314</span>, <span class="hljs-number">12921</span>, <span class="hljs-number">12966</span>, <span class="hljs-number">12927</span>, <span class="hljs-number">13095</span>, <span class="hljs-number">12966</span>, <span class="hljs-number">13069</span>)</span>
-
-<span class="hljs-function">library(ggfortify)</span>
-<span class="hljs-function">autoplot(<span class="hljs-function">ts(<span class="hljs-function">cbind(p_ets, p_tbats, p_arima, actual)</span>, start = <span class="hljs-function">c(<span class="hljs-number">2016</span>,<span class="hljs-number">1</span>)</span>, end = <span class="hljs-function">c(<span class="hljs-number">2016</span>, <span class="hljs-number">12</span>)</span>, frequency = <span class="hljs-number">12</span>)</span>,facets = FALSE)</span></code></pre>
-
-<p><img src="http://i.imgur.com/aLY8JVS.png" alt="enter image description here" title=""></p>
-
-<p>The actual data has a sharp (could be considered as seasonal trend) decline, in January, July and October. And because our forecasting models did not predict that, it is hard to choose a best model. We will dig deep to find the perfect model that can explains(predicts) this kind of a seasonality before final report. <br>
-Meanwhile investigating the data, we found some correlation between sales of diesel cars and total quantity of sales, that those are in inverse proportion to each other.</p>
-
-<pre class="prettyprint"><code class=" hljs scss"><span class="hljs-function">autoplot(<span class="hljs-function">ts(<span class="hljs-function">cbind(dt$Quantity, dt$Quantity_Diesel)</span>, start = <span class="hljs-function">c(<span class="hljs-number">2007</span>,<span class="hljs-number">1</span>)</span>, end = <span class="hljs-function">c(<span class="hljs-number">2016</span>, <span class="hljs-number">12</span>)</span>, frequency = <span class="hljs-number">12</span>)</span>,facets = FALSE)</span></code></pre>
-
-<p><img src="http://i.imgur.com/DxWEM15.png" alt="enter image description here" title=""></p>
-
-<p>Series 1 is <em>Quantity</em> (total sales), and Series 2 is quantity of diesel car sold.</p>
-
-<p>Correlation is so evident. Sales of diesel tended to follow total sales, but starting from 2012 total sales were increasing while the sale of diesel cars were decreasing. There would be a better model, or better way to produce forecasts by taking account this correlation.  <br>
-But for now(2nd scrum) we will stick with current models. On 2nd scrum, we have decided to compare yearly(by total sales) rather than monthly. Total sales of 2016 did not show big difference than our predictions.</p>
-
-<p>total sales were as follow</p>
-
-<table>
-<thead>
-<tr>
-  <th>Actual</th>
-  <th>ETS</th>
-  <th>TBATS</th>
-  <th>ARIMA</th>
-</tr>
-</thead>
-<tbody><tr>
-  <td>154056</td>
-  <td>155124</td>
-  <td>154924</td>
-  <td>155441</td>
-</tr>
-<tr>
-  <td>-</td>
-  <td>-1068</td>
-  <td>-868</td>
-  <td>-1385</td>
-</tr>
-</tbody></table>
-
-
-<p>and because TBATS model showed the least error, we will use TBATS to predict car sales in 2017.</p>
-
-<pre class="prettyprint"><code class=" hljs erlang">dt_ts&lt;-ts(dt$<span class="hljs-variable">Quantity</span>, frequency=<span class="hljs-number">12</span>, start=c(<span class="hljs-number">2007</span>,<span class="hljs-number">1</span>))
-
-<span class="hljs-function"><span class="hljs-title">library</span><span class="hljs-params">(forecast)</span>
-<span class="hljs-title">fut_tbats</span> = <span class="hljs-title">forecast</span><span class="hljs-params">(<span class="hljs-function_name">tbats</span>(dt_ts), h=<span class="hljs-number">11</span>)</span>
-<span class="hljs-title">plot</span><span class="hljs-params">(fut_tbats)</span></span></code></pre>
-
-<p>We removed end parameter when assigning a new time series data. So <em>dt_ts</em> should look like this</p>
-
-<p><img src="http://i.imgur.com/8o3ueHW.png" alt="enter image description here" title=""></p>
-
-<p>Because our data has its record until 2017 January, we only have to predict 11 remaining months for 2017 (Feb~Dec). So we changed <em>h = 11</em> in forecast().</p>
-
-<p>Following picture is the prediction of car sales in 2017 by TBATS model.</p>
-
-<p><img src="http://i.imgur.com/5duqgqO.png" alt="enter image description here" title=""></p>
-
-<p>and this is the summary of TBATS prediction.</p>
-
-
-
-<pre class="prettyprint"><code class=" hljs erlang"><span class="hljs-function"><span class="hljs-title">summary</span><span class="hljs-params">(fut_tbats)</span></span></code></pre>
-
-<p><img src="http://i.imgur.com/4K0Q9uw.png" alt="enter image description here" title=""></p>
-
-<h4 id="conclusion">Conclusion</h4>
-
-<p>The forecast car sales in 2017 would be 163428. (Actual January sales 13055 + predicted sales from Feb~Dec 150373)</p></div></body>
+<dd>
+<p>c. gender roles (X)</p>
+</dd>
+
+<dd>
+<p>d. home ownership (X)</p>
+</dd>
+</dl>
+
+
+
+<h3 id="4-understanding-the-tourist-as-a-consumer">4. Understanding the tourist as a consumer</h3>
+
+<dl>
+<dt>1.Motivation is NOT…….</dt>
+<dd>
+<p>a. the direct result of one’s social status (O)</p>
+</dd>
+
+<dd>
+<p>b. a condition that exerts a pull on an individual </p>
+</dd>
+
+<dd>
+<p>c. able to lead to satisfaction </p>
+</dd>
+
+<dd>
+<p>d. a state of need </p>
+</dd>
+
+<dt>2.According to Patmore, there are 3 broad constraints on tourism. Which of these is NOT one of these constraints:</dt>
+<dd>
+<p>a. mobility (X)</p>
+</dd>
+
+<dd>
+<p>b. desire (X)</p>
+</dd>
+
+<dd>
+<p>c. ability (X)</p>
+</dd>
+
+<dd>
+<p>d. knowledge (O)</p>
+</dd>
+
+<dt>3.Poon’s ‘new tourists’ are NOT characterised by:</dt>
+<dd>
+<p>a. less leisure time (X)</p>
+</dd>
+
+<dd>
+<p>b. more leisure time (O)</p>
+</dd>
+
+<dd>
+<p>c. environmental knowledge </p>
+</dd>
+
+<dd>
+<p>d. cultural awareness </p>
+</dd>
+
+<dt>4.What is NOT a form of tourist travel?</dt>
+<dd>
+<p>a. a business trip to a conference involving an overnight stay </p>
+</dd>
+
+<dd>
+<p>b. incentive travel </p>
+</dd>
+
+<dd>
+<p>c. a shopping trip to a nearby town (O)</p>
+</dd>
+
+<dd>
+<p>d. VFR travel </p>
+</dd>
+
+<dt>5.Maslow’s hierarchy of needs DOES NOT include:</dt>
+<dd>
+<p>a. safety needs </p>
+</dd>
+
+<dd>
+<p>b. physiological needs </p>
+</dd>
+
+<dd>
+<p>c. esteem needs </p>
+</dd>
+
+<dd>
+<p>d. travel motivations (O)</p>
+</dd>
+
+<dt>6.Which author wrote the Tourist Gaze?</dt>
+<dd>
+<p>a. Dann </p>
+</dd>
+
+<dd>
+<p>b. Butler </p>
+</dd>
+
+<dd>
+<p>c. Urry (O)</p>
+</dd>
+
+<dd>
+<p>d. Krippendorf </p>
+</dd>
+
+<dt>7.Cohen’s (1972) categorisation of tourists did not include:</dt>
+<dd>
+<p>a. the surfer (O)</p>
+</dd>
+
+<dd>
+<p>b. the independent mass tourist </p>
+</dd>
+
+<dd>
+<p>c. the drifter (X)</p>
+</dd>
+
+<dd>
+<p>d. the organised mass tourist </p>
+</dd>
+
+<dt>8.Pearce’s (1993) travel career ladder DOES NOT contain:</dt>
+<dd>
+<p>a. self-actualisation motives (X)</p>
+</dd>
+
+<dd>
+<p>b. augmented motives (O)</p>
+</dd>
+
+<dd>
+<p>c. less stable motives </p>
+</dd>
+
+<dd>
+<p>d. core motives </p>
+</dd>
+
+<dt>9.Sensation seeking contains attributes which encourage:</dt>
+<dd>
+<p>a. the pursuit of happiness </p>
+</dd>
+
+<dd>
+<p>b. self-gratification </p>
+</dd>
+
+<dd>
+<p>c. the pursuit of familiar environments </p>
+</dd>
+
+<dd>
+<p>d. risk taking (O)</p>
+</dd>
+</dl>
+
+<p>10.Which of the following is incorrect?</p>
+
+<dl>
+<dt>‘Disability requires tourism operators to consider a tourists’….</dt>
+<dd>
+<p>a. the visual and sensory needs of the visitor </p>
+</dd>
+
+<dd>
+<p>b. the price to be charged for the product (O)</p>
+</dd>
+
+<dd>
+<p>c. the modifications required to accommodate a disabled visitor (X)</p>
+</dd>
+
+<dd>
+<p>d. mobility needs (X)</p>
+</dd>
+</dl></div></body>
 </html>
