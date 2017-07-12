@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>17S DM-Group 5 2nd Scrum</title>
+<title>Hello!</title>
 <link rel="stylesheet" href="https://stackedit.io/res-min/themes/base.css" />
 <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML"></script>
 </head>
@@ -54,11 +54,35 @@
 <p>We want to be able to predict future data results based on what already achieved in the past, without guessing wildly, where everyone is able to make speculation backed by data. With the available past sales data’s range of 10 years, we can use it to predict the sales data for following months. As of now, our available sales data up to January 2017, and it gives us opportunity to attempt predicting sales for February, March, May, and so on. The problem with predicting the future is uncertainties. If we ignore this problem, it will makes the whole project itself no different than making a wild guess. Uncertainties happened when the data that was provided shows more than one possible result, which means the further we try to predict, the more uncertainties shows up as we still need to determine the amount of possible outcome from the earlier prediction.  <br>
 The forecasting models will greatly help us in predicting the future based on our available data and it match well to assist us in processing.</p>
 
+
+
 <h3 id="data-description">Data Description</h3>
 
 <p>Dataset includes monthly car sales in Norway from 2007 January to 2017 January. It has been collected by the Road Traffic Information Council (OFV) and can be accessed from Kaggle. We are using <strong>norway_new_car_sales_by_month.csv</strong>, all inputs are numberic. It has 121 rows and 17 columns, important input variables are Year, Month, and Quantity, others are not relevant in terms of sales prediction.</p>
 
 
+
+<pre class="prettyprint"><code class=" hljs vala">&gt; norway_new_car_sales_by_month.csv 
+
+<span class="hljs-preprocessor">## Observations: 121</span>
+<span class="hljs-preprocessor">## Variables: 17</span>
+<span class="hljs-preprocessor">## $ Year              &lt;int&gt; 2007, 2007, 2007, 2007, 2007, 2007, 2007, 20...</span>
+<span class="hljs-preprocessor">## $ Month             &lt;int&gt; 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 1, 2,...</span>
+<span class="hljs-preprocessor">## $ Quantity          &lt;int&gt; 12685, 9793, 11264, 8854, 12007, 11083, 1206...</span>
+<span class="hljs-preprocessor">## $ Quantity_YoY      &lt;int&gt; 5227, 2448, 1445, 504, 1592, 1545, 1908, 199...</span>
+<span class="hljs-preprocessor">## $ Import            &lt;int&gt; 2276, 1992, 2626, 2220, 2881, 3038, 3768, 34...</span>
+<span class="hljs-preprocessor">## $ Import_YoY        &lt;int&gt; 257, -89, 45, -130, 7, 23, 137, 260, -28, 59...</span>
+<span class="hljs-preprocessor">## $ Used              &lt;int&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, ...</span>
+<span class="hljs-preprocessor">## $ Used_YoY          &lt;int&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, ...</span>
+<span class="hljs-preprocessor">## $ Avg_CO2           &lt;int&gt; 152, 156, 159, 160, 160, 161, 159, 160, 160,...</span>
+<span class="hljs-preprocessor">## $ Bensin_Co2        &lt;int&gt; 155, 159, 161, 165, 163, 163, 161, 160, 160,...</span>
+<span class="hljs-preprocessor">## $ Diesel_Co2        &lt;int&gt; 152, 155, 158, 158, 159, 160, 158, 160, 160,...</span>
+<span class="hljs-preprocessor">## $ Quantity_Diesel   &lt;int&gt; 10072, 7222, 7965, 6116, 8519, 8290, 9203, 7...</span>
+<span class="hljs-preprocessor">## $ Diesel_Share      &lt;dbl&gt; 79.4, 73.7, 70.7, 69.1, 71.0, 74.8, 76.3, 73...</span>
+<span class="hljs-preprocessor">## $ Diesel_Share_LY   &lt;dbl&gt; 52.5, 47.4, 48.1, 48.4, 49.1, 49.5, 50.1, 50...</span>
+<span class="hljs-preprocessor">## $ Quantity_Hybrid   &lt;int&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, ...</span>
+<span class="hljs-preprocessor">## $ Quantity_Electric &lt;int&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, ...</span>
+<span class="hljs-preprocessor">## $ Import_Electric   &lt;int&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, ..</span></code></pre>
 
 <h3 id="utility">Utility</h3>
 
@@ -378,7 +402,15 @@ p_arima &lt;- <span class="hljs-function">c(<span class="hljs-number">12481</spa
 
 <p><img src="http://i.imgur.com/aLY8JVS.png" alt="enter image description here" title=""></p>
 
-<p>The actual data has a sharp (could be considered as seasonal trend ?) decline, in January, July and October. And because our forecasting models did not predict that, it is hard to choose a best model. So we have decided to compare yearly(by total sales) rather than monthly. Total sales of 2016 did not show big difference than our predictions.</p>
+<p>The actual data has a sharp (could be considered as seasonal trend) decline, in January, July and October. And because our forecasting models did not predict that, it is hard to choose a best model. We are thinking to test more models before final to find the one that can explains(predicts) this kind of a seasonality. Besides, while investigating the data, we found some correlation between sales of diesel cars and total quantity of sales, that those are in inverse proportion to each other.</p>
+
+<pre class="prettyprint"><code class=" hljs scss"><span class="hljs-function">autoplot(<span class="hljs-function">ts(<span class="hljs-function">cbind(dt$Quantity, dt$Quantity_Diesel)</span>, start = <span class="hljs-function">c(<span class="hljs-number">2007</span>,<span class="hljs-number">1</span>)</span>, end = <span class="hljs-function">c(<span class="hljs-number">2016</span>, <span class="hljs-number">12</span>)</span>, frequency = <span class="hljs-number">12</span>)</span>,facets = FALSE)</span></code></pre>
+
+<p><img src="http://i.imgur.com/DxWEM15.png" alt="enter image description here" title=""></p>
+
+<p>Series 1 is <em>Quantity</em> (total sales), and Series 2 is quantity of diesel car sold.</p>
+
+<p>Correlation is so evident, total sales were increasing while the sale of diesel cars were decreasing. There would be a better model, or better way to produce forecasts by taking account this correlation. But for now(2nd scrum) we will stick with current models. On 2nd scrum, we have decided to compare yearly(by total sales) rather than monthly. Total sales of 2016 did not show big difference than our predictions.</p>
 
 <p>total sales were as follow</p>
 
@@ -408,8 +440,6 @@ p_arima &lt;- <span class="hljs-function">c(<span class="hljs-number">12481</spa
 
 <p>and because TBATS model showed the least error, we will use TBATS to predict car sales in 2017.</p>
 
-
-
 <pre class="prettyprint"><code class=" hljs erlang">dt_ts&lt;-ts(dt$<span class="hljs-variable">Quantity</span>, frequency=<span class="hljs-number">12</span>, start=c(<span class="hljs-number">2007</span>,<span class="hljs-number">1</span>))
 
 <span class="hljs-function"><span class="hljs-title">library</span><span class="hljs-params">(forecast)</span>
@@ -433,8 +463,6 @@ p_arima &lt;- <span class="hljs-function">c(<span class="hljs-number">12481</spa
 <pre class="prettyprint"><code class=" hljs erlang"><span class="hljs-function"><span class="hljs-title">summary</span><span class="hljs-params">(fut_tbats)</span></span></code></pre>
 
 <p><img src="http://i.imgur.com/4K0Q9uw.png" alt="enter image description here" title=""></p>
-
-
 
 <h4 id="conclusion">Conclusion</h4>
 
