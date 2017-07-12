@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Hello!</title>
+<title>17S DataMiningEA - Group 5 - 2nd Scrum</title>
 <link rel="stylesheet" href="https://stackedit.io/res-min/themes/base.css" />
 <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML"></script>
 </head>
@@ -402,7 +402,8 @@ p_arima &lt;- <span class="hljs-function">c(<span class="hljs-number">12481</spa
 
 <p><img src="http://i.imgur.com/aLY8JVS.png" alt="enter image description here" title=""></p>
 
-<p>The actual data has a sharp (could be considered as seasonal trend) decline, in January, July and October. And because our forecasting models did not predict that, it is hard to choose a best model. We are thinking to test more models before final to find the one that can explains(predicts) this kind of a seasonality. Besides, while investigating the data, we found some correlation between sales of diesel cars and total quantity of sales, that those are in inverse proportion to each other.</p>
+<p>The actual data has a sharp (could be considered as seasonal trend) decline, in January, July and October. And because our forecasting models did not predict that, it is hard to choose a best model. We will dig deep to find the perfect model that can explains(predicts) this kind of a seasonality before final report. <br>
+Meanwhile investigating the data, we found some correlation between sales of diesel cars and total quantity of sales, that those are in inverse proportion to each other.</p>
 
 <pre class="prettyprint"><code class=" hljs scss"><span class="hljs-function">autoplot(<span class="hljs-function">ts(<span class="hljs-function">cbind(dt$Quantity, dt$Quantity_Diesel)</span>, start = <span class="hljs-function">c(<span class="hljs-number">2007</span>,<span class="hljs-number">1</span>)</span>, end = <span class="hljs-function">c(<span class="hljs-number">2016</span>, <span class="hljs-number">12</span>)</span>, frequency = <span class="hljs-number">12</span>)</span>,facets = FALSE)</span></code></pre>
 
@@ -410,7 +411,8 @@ p_arima &lt;- <span class="hljs-function">c(<span class="hljs-number">12481</spa
 
 <p>Series 1 is <em>Quantity</em> (total sales), and Series 2 is quantity of diesel car sold.</p>
 
-<p>Correlation is so evident, total sales were increasing while the sale of diesel cars were decreasing. There would be a better model, or better way to produce forecasts by taking account this correlation. But for now(2nd scrum) we will stick with current models. On 2nd scrum, we have decided to compare yearly(by total sales) rather than monthly. Total sales of 2016 did not show big difference than our predictions.</p>
+<p>Correlation is so evident. Sales of diesel tended to follow total sales, but starting from 2012 total sales were increasing while the sale of diesel cars were decreasing. There would be a better model, or better way to produce forecasts by taking account this correlation.  <br>
+But for now(2nd scrum) we will stick with current models. On 2nd scrum, we have decided to compare yearly(by total sales) rather than monthly. Total sales of 2016 did not show big difference than our predictions.</p>
 
 <p>total sales were as follow</p>
 
